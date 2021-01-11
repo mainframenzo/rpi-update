@@ -473,11 +473,11 @@ function noobs_fix {
 	echo " !!! ${BOOT_PATH} appears to contain NOOBS files"
 	echo "     This may occur if fstab contains incorrect entries."
 	echo "     rpi-update will attempt to correct fstab."
-	read -p "Would you like to proceed? (y/N)" -n 1 -r -s
-	echo
-	if ! [[ $REPLY =~ ^[Yy]$ ]]; then
-		exit 1;
-	fi
+	#read -p "Would you like to proceed? (y/N)" -n 1 -r -s
+	#echo
+	#if ! [[ $REPLY =~ ^[Yy]$ ]]; then
+	#	exit 1;
+	#fi
 
 	if ! grep -qE "/dev/mmcblk0p1\s+/boot" "${ROOT_PATH}/etc/fstab"; then
 		echo "Unexpected fstab entry"
