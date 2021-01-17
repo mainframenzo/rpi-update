@@ -477,11 +477,6 @@ function noobs_fix {
 	local BOOT_DEV="/dev/mmcblk0p$((ROOTNUM-1))"
 	local ROOT_DEV="/dev/mmcblk0p${ROOTNUM}"
 	sed "${ROOT_PATH}/etc/fstab" -e "s|^.*[^#].* / |${ROOT_DEV}  / |;s|^.*[^#].* /boot |${BOOT_DEV}  /boot |"
-	read -p "Does this look correct? (y/N)" -n 1 -r -s
-	echo
-	if ! [[ $REPLY =~ ^[Yy]$ ]]; then
-		exit 1;
-	fi
 	sed "${ROOT_PATH}/etc/fstab" -i -e "s|^.*[^#].* / |${ROOT_DEV}  / |;s|^.*[^#].* /boot |${BOOT_DEV}  /boot |"
 
 	umount "${BOOT_PATH}"
