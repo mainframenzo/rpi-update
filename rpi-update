@@ -409,7 +409,7 @@ function do_update {
 		check_partition
 	fi
 	check_eeprom_version
-	show_notice
+	#show_notice
 	download_rev
 	if [[ -f "${FW_REPOLOCAL}/pre-install" ]]; then
 		echo " *** Running pre-install script"
